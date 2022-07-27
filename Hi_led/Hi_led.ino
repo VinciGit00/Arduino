@@ -3,8 +3,8 @@ int maxTime = 1000;
 bool flag = true;
 
 //Informations about pins
-int pinLed = 8;
-int buttonPin = 9;
+int pinLed = 5;
+int buttonPin = 4;
 
 void setup() {
   delayled = maxTime;
@@ -13,8 +13,7 @@ void setup() {
 }
 
 void loop() {
-  
-
+ 
   if(digitalRead(buttonPin) == HIGH ){
     delayled = delayled -200;
      if (delayled == 200) {
@@ -40,7 +39,5 @@ void loop() {
      }
  
     }
-
-
   
 } 

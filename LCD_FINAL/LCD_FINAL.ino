@@ -43,6 +43,14 @@
 // include the library code:
 #include <LiquidCrystal.h>
 
+//Informations about time
+int delayled ;
+int maxTime = 1000;
+bool flag = true;
+
+//Informations about pins
+int pinLed = 5;
+int buttonPin = 4;
 // initialize the library with the numbers of the interface pins
 LiquidCrystal lcd(7, 8, 9, 10, 11, 12);
 
@@ -51,9 +59,13 @@ void setup() {
   lcd.begin(16, 2);
   // Print a message to the LCD.
   lcd.print("Salvatore Strunz");
+  delayled = maxTime;
+  pinMode(pinLed, OUTPUT);
+  pinMode(buttonPin, INPUT);
 }
 
 void loop() {
+  
   lcd.clear();
   lcd.print("Salvatore Strunz");
   delay(2500);
@@ -66,10 +78,31 @@ void loop() {
   delay(2500);
   lcd.clear();
   
-  // set the cursor to column 0, line 1
-  // (note: line 1 is the second row, since counting begins with 0):
-  lcd.setCursor(0, 1);
-  // print the number of seconds since reset:
-  lcd.print(millis() / 1000);
+  
+  if(digitalRead(buttonPin) == HIGH ){
+    delayled = delayled -200;
+     if (delayled == 200) {
+        flag = true;
+        delayled = maxTime;  
+      } else {
+        flag = false;
+        }
+  }
+
+    if(flag == true) {
+    digitalWrite(pinLed, HIGH);
+    } else {
+      digitalWrite(pinLed, HIGH);
+      delay(delayled);
+      digitalWrite(pinLed, LOW);
+      delay(delayled);
+       if (delayled == 200) {
+        flag = true;
+        delayled = maxTime;  
+      } else {
+        flag = false;
+     }
+ 
+    }
 }
                                             
