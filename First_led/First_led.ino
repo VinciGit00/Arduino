@@ -8,8 +8,10 @@ void setup() {
 }
 
 void loop() {
-  digitalWrite(pinLed, HIGH)
+  if(digitalRead(buttonPin) == HIGH ){
+  digitalWrite(pinLed, HIGH);
   delay(delayled);
-  digitalWrite(pinLed, LOW)
+  digitalWrite(pinLed, LOW);
   delay(delayled);
-}
+  }
+} 
