@@ -68,14 +68,15 @@ void loop() {
   
   lcd.clear();
   lcd.print("Salvatore Strunz");
-  delay(2500);
+  digitalWrite(pinLed, HIGH);
+  delay(delayled);
   lcd.clear();
 
   lcd.clear();
   lcd.print("Designed by ");
   lcd.setCursor(0,1);
   lcd.print("   Vinci");
-  delay(2500);
+  delay(delayled);
   lcd.clear();
   
   
